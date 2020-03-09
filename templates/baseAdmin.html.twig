@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Avril Lavigne Francophone - Administration{% endblock %}</title>
+        
+	<meta name="description" content="Avril Lavigne Francophone">
+	<meta name="keywords" content="Avril Lavigne, fan page, france, francophone, Avril, Lavigne, html">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Favicon -->   
+	<link href="{{ asset('img/favicon.ico') }}" rel="shortcut icon"/>
+
+	<!-- Stylesheets -->
+        {%block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('css/animate.css') }}"/>
+            <link rel="stylesheet" href="{{ asset('https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css') }}"/>
+            <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}"/>
+            <link rel="stylesheet" href="{{ asset('css/owl.carousel.css') }}"/>
+            <link rel="stylesheet" href="{{ asset('css/style.css') }}"/>
+            <link rel="stylesheet" href="{{ asset('css/rating.css') }}">
+            <link rel="stylesheet" href="{{asset('https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous')}}">
+            <link rel="stylesheet" type="text/css" href="http://cdn.datatables.net/plug-ins/3cfcc339e89/integration/bootstrap/3/dataTables.bootstrap.css">
+           <!-- Google Fonts -->
+            <link rel="stylesheet" href="{{asset('https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i') }}" >
+        {% endblock %}
+
+</head>
+    <body>
+        <!-- Page Preloder -->
+	{#<div id="preloder">
+		<div class="loader"></div>
+	</div>#}
+
+	<!-- Header section -->
+	<header class="header-section" style=" padding-bottom: 50px;">
+		<div class="container">
+			<!-- logo -->
+			{#<a class="site-logo" href="{{path('home_page') }}">
+				<img src="{{asset('img/logoWarrior.png') }}" alt="">
+			</a>#}
+                        
+			<div class="user-panel" style="z-index: 1000">
+                            {% if app.user %}
+                                <div class="dropdown" style="z-index: 1000">
+                                        <a class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            {{app.user.username}}
+                                            <span class="caret"></span>
+                                        </a>
+                                            <div class="dropdown-menu" style="z-index: 1000" aria-labelledby="dropdownMenuLink" >
+                                                    <a class="dropdown-item" href="#">Mon profil</a>
+                                                      
+                                                    <a class="dropdown-item" href="{{path ('app_logout')}}">Se déconnecter</a>    
+                                            </div>
+                                  
+                                </div>
+                    
+                            {% else %}
+                                <a href="{{path ('app_login')}}">Se connecter</a>  /  <a href="{{path ('app_register')}}">S'enregistrer</a>
+                            {% endif %}
+				
+			</div>
+			<!-- responsive -->
+			<div class="nav-switch">
+				<i class="fa fa-bars"></i>
+			</div>
+			<!-- site menu -->
+			<nav class="main-menu">
+                            
+				<ul>
+					<li><a href="{{path('home_page')}}">Site</a></li>
+					<li><a href="{{path('admin_user')}}">Utilisateurs</a></li>
+                                        <li><a href="#">Avril Lavigne</a></li>
+					<li><a href="#">Blog</a></li>
+					<li><a href="#">Tour</a></li>
+                                        <li><a href="#">Galerie</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+	<!-- Header section end -->
+        {% block body %}
+        
+        {% endblock %}
+        
+     
+    <!-- Footer section -->
+	<!-- Footer section end -->
+    </body>
+   
+    {% block js %}
+         <script src="{{asset('https://code.jquery.com/jquery-3.3.1.slim.min.js')}}"></script>
+            <script src="{{asset('https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js')}}"></script>
+            <script src="{{asset('https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js')}}"></script>
+            <script src="{{asset('https://code.jquery.com/jquery-3.3.1.min.js')}}"></script>
+            <script src="{{asset ('js/owl.carousel.min.js') }}"></script>
+            <script src="{{asset ('js/main.js') }}"></script>
+            <script src="{{asset ('js/map.js') }}"></script>
+            <script src="{{asset ('js/scripts.min.js') }}"></script>
+             
+            <script src="{{asset('https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')}}"></script>
+            
+            <script src="{{ asset('js/rating.min.js') }}"></script>
+    
+{% endblock %}
+    
+</html>
